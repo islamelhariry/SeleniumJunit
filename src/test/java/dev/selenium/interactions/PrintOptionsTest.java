@@ -1,10 +1,10 @@
 package dev.selenium.interactions;
 
+import dev.selenium.BaseChromeTest;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.print.PageMargin;
-import org.openqa.selenium.print.PrintOptions;
 import org.openqa.selenium.print.PageSize;
-import dev.selenium.BaseChromeTest;
+import org.openqa.selenium.print.PrintOptions;
 
 public class PrintOptionsTest extends BaseChromeTest {
 

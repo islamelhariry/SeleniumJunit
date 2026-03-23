@@ -1,24 +1,18 @@
 package dev.selenium.bidirectional.webdriver_bidi;
 
 import dev.selenium.BaseTest;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.TimeoutException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WindowType;
+import org.openqa.selenium.bidi.browsingcontext.*;
 import org.openqa.selenium.bidi.module.BrowsingContextInspector;
-import org.openqa.selenium.bidi.browsingcontext.BrowsingContext;
-import org.openqa.selenium.bidi.browsingcontext.BrowsingContextInfo;
-import org.openqa.selenium.bidi.browsingcontext.NavigationInfo;
-import org.openqa.selenium.bidi.browsingcontext.ReadinessState;
-import org.openqa.selenium.bidi.browsingcontext.UserPromptClosed;
-import org.openqa.selenium.bidi.browsingcontext.UserPromptOpened;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.TimeUnit;
 
 class BrowsingContextInspectorTest extends BaseTest {
     @BeforeEach
@@ -30,7 +24,7 @@ class BrowsingContextInspectorTest extends BaseTest {
 
     @Test
     void canListenToWindowBrowsingContextCreatedEvent()
-        throws ExecutionException, InterruptedException, TimeoutException {
+            throws Exception {
     try (BrowsingContextInspector inspector = new BrowsingContextInspector(driver)) {
         CompletableFuture<BrowsingContextInfo> future = new CompletableFuture<>();
 
@@ -46,7 +40,7 @@ class BrowsingContextInspectorTest extends BaseTest {
 
     @Test
     void canListenToTabBrowsingContextCreatedEvent()
-            throws ExecutionException, InterruptedException, TimeoutException {
+            throws Exception {
         try (BrowsingContextInspector inspector = new BrowsingContextInspector(driver)) {
             CompletableFuture<BrowsingContextInfo> future = new CompletableFuture<>();
             inspector.onBrowsingContextCreated(future::complete);
@@ -61,7 +55,7 @@ class BrowsingContextInspectorTest extends BaseTest {
 
     @Test
     void canListenToDomContentLoadedEvent()
-            throws ExecutionException, InterruptedException, TimeoutException {
+            throws Exception {
         try (BrowsingContextInspector inspector = new BrowsingContextInspector(driver)) {
             CompletableFuture<NavigationInfo> future = new CompletableFuture<>();
             inspector.onDomContentLoaded(future::complete);
@@ -77,7 +71,7 @@ class BrowsingContextInspectorTest extends BaseTest {
 
     @Test
     void canListenToBrowsingContextLoadedEvent()
-            throws ExecutionException, InterruptedException, TimeoutException {
+            throws Exception {
         try (BrowsingContextInspector inspector = new BrowsingContextInspector(driver)) {
             CompletableFuture<NavigationInfo> future = new CompletableFuture<>();
             inspector.onBrowsingContextLoaded(future::complete);
@@ -93,7 +87,7 @@ class BrowsingContextInspectorTest extends BaseTest {
 
     @Test
     void canListenToNavigationStartedEvent()
-            throws ExecutionException, InterruptedException, TimeoutException {
+            throws Exception {
         try (BrowsingContextInspector inspector = new BrowsingContextInspector(driver)) {
             CompletableFuture<NavigationInfo> future = new CompletableFuture<>();
             inspector.onNavigationStarted(future::complete);
@@ -109,7 +103,7 @@ class BrowsingContextInspectorTest extends BaseTest {
 
     @Test
     void canListenToFragmentNavigatedEvent()
-            throws ExecutionException, InterruptedException, TimeoutException {
+            throws Exception {
         try (BrowsingContextInspector inspector = new BrowsingContextInspector(driver)) {
             CompletableFuture<NavigationInfo> future = new CompletableFuture<>();
 
@@ -128,7 +122,7 @@ class BrowsingContextInspectorTest extends BaseTest {
 
     @Test
     void canListenToUserPromptOpenedEvent()
-            throws ExecutionException, InterruptedException, TimeoutException {
+            throws Exception {
         try (BrowsingContextInspector inspector = new BrowsingContextInspector(driver)) {
             CompletableFuture<UserPromptOpened> future = new CompletableFuture<>();
 
@@ -146,7 +140,7 @@ class BrowsingContextInspectorTest extends BaseTest {
 
     @Test
     void canListenToUserPromptClosedEvent()
-            throws ExecutionException, InterruptedException, TimeoutException {
+            throws Exception {
         try (BrowsingContextInspector inspector = new BrowsingContextInspector(driver)) {
             CompletableFuture<UserPromptClosed> future = new CompletableFuture<>();
 
@@ -166,7 +160,7 @@ class BrowsingContextInspectorTest extends BaseTest {
 
     @Test
     void canListenToBrowsingContextDestroyedEvent()
-            throws ExecutionException, InterruptedException, TimeoutException {
+            throws Exception {
         try (BrowsingContextInspector inspector = new BrowsingContextInspector(driver)) {
             CompletableFuture<BrowsingContextInfo> future = new CompletableFuture<>();
 

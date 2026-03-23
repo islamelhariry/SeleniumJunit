@@ -1,17 +1,17 @@
 package dev.selenium.interactions;
 
 import dev.selenium.BaseChromeTest;
-import java.security.spec.PKCS8EncodedKeySpec;
-import java.util.Base64;
-import java.util.List;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.InvalidArgumentException;
 import org.openqa.selenium.virtualauthenticator.Credential;
 import org.openqa.selenium.virtualauthenticator.HasVirtualAuthenticator;
 import org.openqa.selenium.virtualauthenticator.VirtualAuthenticator;
 import org.openqa.selenium.virtualauthenticator.VirtualAuthenticatorOptions;
+
+import java.security.spec.PKCS8EncodedKeySpec;
+import java.util.Base64;
+import java.util.List;
 
 public class VirtualAuthenticatorTest extends BaseChromeTest {
 

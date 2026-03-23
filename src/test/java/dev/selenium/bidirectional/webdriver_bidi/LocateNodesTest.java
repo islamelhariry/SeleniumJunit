@@ -1,28 +1,23 @@
 package dev.selenium.bidirectional.webdriver_bidi;
 
 import dev.selenium.BaseTest;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.bidi.module.Script;
 import org.openqa.selenium.bidi.browsingcontext.BrowsingContext;
 import org.openqa.selenium.bidi.browsingcontext.LocateNodeParameters;
 import org.openqa.selenium.bidi.browsingcontext.Locator;
 import org.openqa.selenium.bidi.browsingcontext.ReadinessState;
-import org.openqa.selenium.bidi.script.EvaluateResult;
-import org.openqa.selenium.bidi.script.EvaluateResultSuccess;
-import org.openqa.selenium.bidi.script.LocalValue;
-import org.openqa.selenium.bidi.script.NodeProperties;
-import org.openqa.selenium.bidi.script.RemoteReference;
-import org.openqa.selenium.bidi.script.RemoteValue;
-import org.openqa.selenium.bidi.script.ResultOwnership;
+import org.openqa.selenium.bidi.module.Script;
+import org.openqa.selenium.bidi.script.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 
 class LocateNodesTest extends BaseTest {
 

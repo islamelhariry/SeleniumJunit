@@ -1,15 +1,15 @@
 package dev.selenium.interactions;
 
-import org.openqa.selenium.Pdf;
-import org.openqa.selenium.bidi.browsingcontext.BrowsingContext;
-import org.junit.jupiter.api.Test;
+import dev.selenium.BaseTest;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
-import org.openqa.selenium.print.PrintOptions;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.junit.jupiter.api.Test;
+import org.openqa.selenium.Pdf;
 import org.openqa.selenium.PrintsPage;
-import dev.selenium.BaseTest;
+import org.openqa.selenium.bidi.browsingcontext.BrowsingContext;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.print.PrintOptions;
 
 public class PrintsPageTest extends BaseTest{
 

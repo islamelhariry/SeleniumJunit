@@ -1,5 +1,12 @@
 package dev.selenium.troubleshooting;
 
+import dev.selenium.BaseTest;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import org.openqa.selenium.manager.SeleniumManager;
+import org.openqa.selenium.remote.RemoteWebDriver;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -8,13 +15,6 @@ import java.util.logging.FileHandler;
 import java.util.logging.Handler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-import dev.selenium.BaseTest;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
-import org.openqa.selenium.manager.SeleniumManager;
-import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class LoggingTest extends BaseTest {
 

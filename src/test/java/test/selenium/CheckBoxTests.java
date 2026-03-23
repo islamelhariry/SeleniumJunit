@@ -8,8 +8,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-import java.util.List;
-
 public class CheckBoxTests {
     public static final String FormURL = "https://demoqa.com/automation-practice-form";
     WebDriver driver;
@@ -32,7 +30,7 @@ public class CheckBoxTests {
         boolean isSelected = checkBoxSelected.isSelected();
 
         // performing click operation if element is not selected
-        if(isSelected == false) {
+        if(!isSelected) {
             checkBoxSelected.click();
         }
 
@@ -43,7 +41,7 @@ public class CheckBoxTests {
         boolean isDisplayed = checkBoxDisplayed.isDisplayed();
 
         // performing click operation if element is displayed
-        if (isDisplayed == true) {
+        if (isDisplayed) {
             checkBoxDisplayed.click();
         }
 
@@ -54,7 +52,7 @@ public class CheckBoxTests {
         boolean isEnabled = checkBoxEnabled.isEnabled();
 
         // performing click operation if element is enabled
-        if (isEnabled == true) {
+        if (isEnabled) {
             checkBoxEnabled.click();
         }
     }

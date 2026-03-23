@@ -18,10 +18,14 @@
 package dev.selenium.interactions;
 
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+
 import java.time.Duration;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class FramesTest{
 
@@ -39,7 +43,7 @@ public class FramesTest{
          WebElement iframe = driver.findElement(By.id("iframe1"));
          //Switch to the frame
          driver.switchTo().frame(iframe);
-         assertEquals(true, driver.getPageSource().contains("We Leave From Here"));
+        assertTrue(driver.getPageSource().contains("We Leave From Here"));
          //Now we can type text into email field
          WebElement emailE = driver.findElement(By.id("email"));
          emailE.sendKeys("admin@selenium.dev");
@@ -51,7 +55,7 @@ public class FramesTest{
          WebElement iframe1=driver.findElement(By.name("iframe1-name"));
          //Switch to the frame
          driver.switchTo().frame(iframe1);
-         assertEquals(true, driver.getPageSource().contains("We Leave From Here"));
+        assertTrue(driver.getPageSource().contains("We Leave From Here"));
          WebElement email = driver.findElement(By.id("email"));
          //Now we can type text into email field
          email.sendKeys("admin@selenium.dev");
@@ -61,11 +65,11 @@ public class FramesTest{
          
          //switch To IFrame using index
          driver.switchTo().frame(0);
-         assertEquals(true, driver.getPageSource().contains("We Leave From Here"));
+        assertTrue(driver.getPageSource().contains("We Leave From Here"));
          
          //leave frame
          driver.switchTo().defaultContent();
-         assertEquals(true, driver.getPageSource().contains("This page has iframes"));
+        assertTrue(driver.getPageSource().contains("This page has iframes"));
          
          //quit the browser
          driver.quit();

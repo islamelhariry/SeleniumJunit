@@ -2,12 +2,6 @@ package dev.selenium.bidi.cdp;
 
 import com.google.common.collect.ImmutableMap;
 import dev.selenium.BaseTest;
-import java.time.Duration;
-import java.util.Base64;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Optional;
-import java.util.concurrent.atomic.AtomicBoolean;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -20,6 +14,13 @@ import org.openqa.selenium.devtools.v145.browser.Browser;
 import org.openqa.selenium.devtools.v145.network.Network;
 import org.openqa.selenium.devtools.v145.network.model.Headers;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
+import java.util.Base64;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Optional;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class CdpApiTest extends BaseTest {
   DevTools devTools;

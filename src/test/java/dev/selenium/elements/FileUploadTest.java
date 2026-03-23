@@ -1,11 +1,12 @@
 package dev.selenium.elements;
 
 import dev.selenium.BaseChromeTest;
-import java.io.File;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+
+import java.io.File;
 
 public class FileUploadTest extends BaseChromeTest {
 
