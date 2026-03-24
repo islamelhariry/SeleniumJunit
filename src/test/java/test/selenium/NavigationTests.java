@@ -1,27 +1,16 @@
 package test.selenium;
 
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class NavigationTests {
+public class NavigationTests extends BaseTest{
     public static final String HomeURL = "https://demoqa.com/";
     public static final String TrainingURL = "https://www.toolsqa.com/selenium-training/";
-    WebDriver driver;
-
-    @BeforeEach
-    public void setup() {
-        driver = new FirefoxDriver();
-        driver.manage().window().maximize();
-    }
 
     @Test
     public void CurrentURLTest() {
@@ -81,12 +70,5 @@ public class NavigationTests {
         driver.get(HomeURL);
         String title = driver.getTitle();
         System.out.println("The page title is : " +title);
-    }
-
-    @AfterEach
-    public void teardown() {
-        if (driver != null) {
-            driver.quit();
-        }
     }
 }

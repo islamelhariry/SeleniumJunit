@@ -1,26 +1,15 @@
 package test.selenium;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.util.List;
 
-public class FindElementTests {
+public class FindElementTests extends BaseTest{
     public static final String TextBoxURL = "https://demoqa.com/text-box/";
     public static final String FormURL = "https://demoqa.com/automation-practice-form";
     public static final String LinksURL = "https://demoqa.com/links";
-    WebDriver driver;
-
-    @BeforeEach
-    public void setup() {
-        driver = new FirefoxDriver();
-        driver.manage().window().maximize();
-    }
 
     @Test
     public void FindElementsTest() {
@@ -29,7 +18,7 @@ public class FindElementTests {
         // Find elements using tag name
         List<WebElement> allInputElements = driver.findElements(By.tagName("input"));
 
-        if(allInputElements.size() != 0)
+        if(!allInputElements.isEmpty())
         {
             System.out.println(allInputElements.size() + " Elements found by TagName as input \n");
 
@@ -41,7 +30,7 @@ public class FindElementTests {
     }
 
     @Test
-    public void FindElementTest() {
+    public void FindElementByIdTest() {
         driver.get(TextBoxURL);
 
         WebElement element = driver.findElement(By.id("submit"));
@@ -65,7 +54,7 @@ public class FindElementTests {
     public void FindElementByClassNameTest() {
         driver.get(FormURL);
 
-        WebElement parentElement = driver.findElement (By.className("button"));
+        WebElement parentElement = driver.findElement (By.className("btn-primary"));
 
         if(parentElement != null) {
             System.out.println("Element found by ClassName");
@@ -119,10 +108,67 @@ public class FindElementTests {
         }
     }
 
-    @AfterEach
-    public void teardown() {
-        if (driver != null) {
-            driver.quit();
-        }
+    @Test
+    public void FindElementTest() {
+        driver.get(FormURL);
+
+        // URL - https://demoqa.com/automation-practice-form
+
+        driver.get("https://demoqa.com/automation-practice-form");
+        driver.findElement(By.id("firstName"));
+
+        /*
+           Locate by Name attribute
+           URL - https://demoqa.com/automation-practice-form
+         */
+
+        driver.get("https://demoqa.com/automation-practice-form");
+        driver.findElement(By.name("gender"));
+
+        /*
+           Locate by className attribute
+           URL - https://demoqa.com/automation-practice-form
+         */
+
+        driver.get("https://demoqa.com/automation-practice-form");
+        driver.findElement(By.className("practice-form-wrapper"));
+
+        /*
+           Locate by linkText and ParticalLinkText attribute
+           URL - https://demoqa.com/links
+         */
+
+        driver.get("https://demoqa.com/links");
+        //linkText
+        driver.findElement(By.linkText("Home"));
+        //partialLinkText
+        driver.findElement(By.partialLinkText("Ho"));
+
+        /*
+           Locate by tagName attribute
+           URL - https://demoqa.com/links
+         */
+
+        driver.get("https://demoqa.com/links");
+        List <WebElement> list = driver.findElements(By.tagName("a"));
+
+
+        /*
+           Locate by cssSelector attribute
+           URL - https://demoqa.com/text-box
+         */
+
+        driver.get("https://demoqa.com/text-box");
+        driver.findElement(By.cssSelector("input[id='userName']"));
+
+
+        /*
+           Locate by xpath attribute
+           URL - https://demoqa.com/text-box
+         */
+
+        driver.get("https://demoqa.com/text-box");
+        driver.findElement(By.xpath("//input[@id='userName']"));
+
     }
 }

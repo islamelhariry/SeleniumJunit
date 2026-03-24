@@ -1,24 +1,13 @@
 package test.selenium;
 
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 
-public class LocatorsTests {
+public class LocatorsTests extends BaseTest{
 
     public static final String LogInURL = "https://demoqa.com/login";
     public static final String BrowsersURL = "https://demoqa.com/browser-windows/";
-    WebDriver driver;
-
-    @BeforeEach
-    public void setup() {
-        driver = new FirefoxDriver();
-        driver.manage().window().maximize();
-    }
 
     @Test
     public void CurrentURLTest() {
@@ -44,7 +33,7 @@ public class LocatorsTests {
 
     private void GetAndPrintPageSource() {
         String pageSource = driver.getPageSource();
-        int pageSourceLength = pageSource.length();
+        int pageSourceLength = pageSource != null ? pageSource.length() : 0;
         System.out.println("Total length of the Pgae Source is : " + pageSourceLength);
     }
 
@@ -64,12 +53,5 @@ public class LocatorsTests {
         var currentURL = driver.getCurrentUrl();
         System.out.println("The current URL is : " +currentURL);
         Assertions.assertEquals(LogInURL, currentURL);
-    }
-
-    @AfterEach
-    public void teardown() {
-        if (driver != null) {
-            driver.quit();
-        }
     }
 }
