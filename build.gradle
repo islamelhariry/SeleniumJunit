@@ -13,6 +13,7 @@ ext['seleniumVersion'] = System.getProperty('selenium.version', '4.41.0')
 
 dependencies {
     testImplementation "org.seleniumhq.selenium:selenium-java:${seleniumVersion}"
+    testImplementation "org.seleniumhq.selenium:htmlunit3-driver:${seleniumVersion}"
     testImplementation "org.seleniumhq.selenium:selenium-grid:${seleniumVersion}"
     testImplementation platform("org.junit:junit-bom:6.0.2")
     testImplementation 'org.junit.jupiter:junit-jupiter-engine'
