@@ -6,9 +6,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 
 import java.net.HttpURLConnection;
-import java.net.URI;
 import java.net.URL;
-import java.util.Iterator;
 import java.util.List;
 
 public class BrokenLinkTests extends BaseTest{
@@ -20,9 +18,8 @@ public class BrokenLinkTests extends BaseTest{
         System.out.println("Total links on the Wb Page: " + allURLs.size());
 
         //We will iterate through the list and will check the elements in the list.
-        Iterator<WebElement> iterator = allURLs.iterator();
-        while (iterator.hasNext()) {
-            String url = iterator.next().getText();
+        for (WebElement allURL : allURLs) {
+            String url = allURL.getText();
             System.out.println(url);
         }
     }
