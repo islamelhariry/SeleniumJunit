@@ -1,22 +1,20 @@
 package dev.selenium.bidirectional.webdriver_bidi;
 
 import dev.selenium.BaseTest;
-
-import java.time.Duration;
-import java.util.concurrent.*;
-
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.bidi.module.LogInspector;
 import org.openqa.selenium.bidi.log.ConsoleLogEntry;
 import org.openqa.selenium.bidi.log.JavascriptLogEntry;
 import org.openqa.selenium.bidi.log.LogLevel;
 import org.openqa.selenium.bidi.log.StackTrace;
+import org.openqa.selenium.bidi.module.LogInspector;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.TimeUnit;
 
 class LogTest extends BaseTest {
 
@@ -28,7 +26,7 @@ class LogTest extends BaseTest {
     }
 
     @Test
-    void testListenToConsoleLog() throws ExecutionException, InterruptedException, TimeoutException {
+    void testListenToConsoleLog() throws Exception {
         try (LogInspector logInspector = new LogInspector(driver)) {
             CompletableFuture<ConsoleLogEntry> future = new CompletableFuture<>();
             logInspector.onConsoleEntry(future::complete);
@@ -49,7 +47,7 @@ class LogTest extends BaseTest {
 
     @Test
     void testListenToJavascriptLog()
-            throws ExecutionException, InterruptedException, TimeoutException {
+            throws Exception {
         try (LogInspector logInspector = new LogInspector(driver)) {
             CompletableFuture<JavascriptLogEntry> future = new CompletableFuture<>();
             logInspector.onJavaScriptLog(future::complete);
@@ -67,7 +65,7 @@ class LogTest extends BaseTest {
 
     @Test
     void testListenToJavascriptErrorLog()
-            throws ExecutionException, InterruptedException, TimeoutException {
+            throws Exception {
         try (LogInspector logInspector = new LogInspector(driver)) {
             CompletableFuture<JavascriptLogEntry> future = new CompletableFuture<>();
             logInspector.onJavaScriptException(future::complete);
@@ -84,7 +82,7 @@ class LogTest extends BaseTest {
 
     @Test
     void testRetrieveStacktraceForALog()
-            throws ExecutionException, InterruptedException, TimeoutException {
+            throws Exception {
         try (LogInspector logInspector = new LogInspector(driver)) {
             CompletableFuture<JavascriptLogEntry> future = new CompletableFuture<>();
             logInspector.onJavaScriptException(future::complete);
@@ -102,7 +100,7 @@ class LogTest extends BaseTest {
 
     @Test
     void testListenToLogsWithMultipleConsumers()
-            throws ExecutionException, InterruptedException, TimeoutException {
+            throws Exception {
         try (LogInspector logInspector = new LogInspector(driver)) {
             CompletableFuture<JavascriptLogEntry> completableFuture1 = new CompletableFuture<>();
             logInspector.onJavaScriptLog(completableFuture1::complete);

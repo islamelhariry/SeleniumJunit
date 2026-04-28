@@ -1,10 +1,6 @@
 package dev.selenium.bidirectional.webdriver_bidi;
 
 import dev.selenium.BaseTest;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.TimeoutException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -14,6 +10,9 @@ import org.openqa.selenium.bidi.network.BeforeRequestSent;
 import org.openqa.selenium.bidi.network.ResponseDetails;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.TimeUnit;
 
 class NetworkEventsTest extends BaseTest {
 
@@ -26,7 +25,7 @@ class NetworkEventsTest extends BaseTest {
 
     @Test
     void canListenToBeforeRequestSentEvent()
-            throws ExecutionException, InterruptedException, TimeoutException {
+            throws Exception {
         try (Network network = new Network(driver)) {
             CompletableFuture<BeforeRequestSent> future = new CompletableFuture<>();
             network.onBeforeRequestSent(future::complete);
@@ -41,7 +40,7 @@ class NetworkEventsTest extends BaseTest {
 
     @Test
     void canListenToResponseStartedEvent()
-            throws ExecutionException, InterruptedException, TimeoutException {
+            throws Exception {
         try (Network network = new Network(driver)) {
             CompletableFuture<ResponseDetails> future = new CompletableFuture<>();
             network.onResponseStarted(future::complete);
@@ -58,7 +57,7 @@ class NetworkEventsTest extends BaseTest {
 
     @Test
     void canListenToResponseCompletedEvent()
-            throws ExecutionException, InterruptedException, TimeoutException {
+            throws Exception {
         try (Network network = new Network(driver)) {
             CompletableFuture<ResponseDetails> future = new CompletableFuture<>();
             network.onResponseCompleted(future::complete);
@@ -75,7 +74,7 @@ class NetworkEventsTest extends BaseTest {
 
     @Test
     void canListenToResponseCompletedEventWithCookie()
-            throws ExecutionException, InterruptedException, TimeoutException {
+            throws Exception {
         try (Network network = new Network(driver)) {
             CompletableFuture<BeforeRequestSent> future = new CompletableFuture<>();
 
@@ -90,14 +89,14 @@ class NetworkEventsTest extends BaseTest {
             Assertions.assertEquals(windowHandle, requestSent.getBrowsingContextId());
             Assertions.assertEquals("get", requestSent.getRequest().getMethod().toLowerCase());
 
-            Assertions.assertEquals("foo", requestSent.getRequest().getCookies().get(0).getName());
-            Assertions.assertEquals("bar", requestSent.getRequest().getCookies().get(0).getValue().getValue());
+            Assertions.assertEquals("foo", requestSent.getRequest().getCookies().getFirst().getName());
+            Assertions.assertEquals("bar", requestSent.getRequest().getCookies().getFirst().getValue().getValue());
         }
     }
 
     @Test
     void canListenToOnAuthRequiredEvent()
-            throws ExecutionException, InterruptedException, TimeoutException {
+            throws Exception {
         try (Network network = new Network(driver)) {
             CompletableFuture<ResponseDetails> future = new CompletableFuture<>();
             network.onAuthRequired(future::complete);

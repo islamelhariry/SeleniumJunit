@@ -1,18 +1,17 @@
 package dev.selenium.drivers;
 
 import dev.selenium.BaseTest;
-
-import java.time.Duration;
-import java.time.temporal.ChronoUnit;
-
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.UnexpectedAlertBehaviour;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.CapabilityType;
-import org.openqa.selenium.chrome.ChromeDriver;
+
+import java.time.Duration;
+import java.time.temporal.ChronoUnit;
 
 public class OptionsTest extends BaseTest {
 

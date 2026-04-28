@@ -1,26 +1,25 @@
 package dev.selenium.bidirectional.webdriver_bidi;
 
 import dev.selenium.BaseTest;
-import java.util.List;
-import java.util.Optional;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.TimeoutException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.condition.DisabledOnOs;
 import org.junit.jupiter.api.condition.OS;
-import org.openqa.selenium.bidi.module.Script;
 import org.openqa.selenium.bidi.browsingcontext.BrowsingContext;
+import org.openqa.selenium.bidi.module.Script;
 import org.openqa.selenium.bidi.script.LocalValue;
 import org.openqa.selenium.bidi.script.Message;
 import org.openqa.selenium.bidi.script.RealmInfo;
 import org.openqa.selenium.bidi.script.RealmType;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+
+import java.util.List;
+import java.util.Optional;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.TimeUnit;
 
 class ScriptEventsTest extends BaseTest {
 
@@ -33,7 +32,7 @@ class ScriptEventsTest extends BaseTest {
     
     @Test
     void canListenToChannelMessage()
-            throws ExecutionException, InterruptedException, TimeoutException {
+            throws Exception {
         try (Script script = new Script(driver)) {
             CompletableFuture<Message> future = new CompletableFuture<>();
             script.onMessage(future::complete);
@@ -54,7 +53,7 @@ class ScriptEventsTest extends BaseTest {
     @Test
     @DisabledOnOs(value = OS.MAC, disabledReason = "Works locally, times out on CI")
     void canListenToRealmCreatedEvent()
-            throws ExecutionException, InterruptedException, TimeoutException {
+            throws Exception {
         try (Script script = new Script(driver)) {
             CompletableFuture<RealmInfo> future = new CompletableFuture<>();
             script.onRealmCreated(future::complete);
@@ -71,7 +70,7 @@ class ScriptEventsTest extends BaseTest {
     @Test
     @Disabled
     void canListenToRealmDestroyedEvent()
-            throws ExecutionException, InterruptedException, TimeoutException {
+            throws Exception {
         try (Script script = new Script(driver)) {
             CompletableFuture<RealmInfo> future = new CompletableFuture<>();
             script.onRealmDestroyed(future::complete);

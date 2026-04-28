@@ -1,16 +1,6 @@
 package dev.selenium.drivers;
 
 import dev.selenium.BaseTest;
-import java.io.File;
-import java.io.IOException;
-import java.net.URL;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.time.Duration;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Map;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -24,6 +14,17 @@ import org.openqa.selenium.remote.LocalFileDetector;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.remote.http.ClientConfig;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.time.Duration;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Map;
 
 public class RemoteWebDriverTest extends BaseTest {
   URL gridUrl;
@@ -97,7 +98,7 @@ public class RemoteWebDriverTest extends BaseTest {
 
     driver = new Augmenter().augment(driver);
 
-    Assertions.assertTrue(driver instanceof HasCasting);
+      Assertions.assertInstanceOf(HasCasting.class, driver);
   }
 
   @Test
@@ -110,6 +111,6 @@ public class RemoteWebDriverTest extends BaseTest {
             .config(ClientConfig.defaultConfig())
             .build();
 
-    Assertions.assertTrue(driver instanceof HasCasting);
+      Assertions.assertInstanceOf(HasCasting.class, driver);
   }
 }

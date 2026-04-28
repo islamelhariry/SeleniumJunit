@@ -1,12 +1,12 @@
 package dev.selenium.drivers;
 
 import dev.selenium.BaseTest;
-
-import org.openqa.selenium.remote.http.ClientConfig;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.UsernameAndPassword;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.remote.http.ClientConfig;
 
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManager;
@@ -19,8 +19,6 @@ import java.security.KeyStore;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
 import java.time.Duration;
-
-import org.openqa.selenium.UsernameAndPassword;
 
 import static java.net.http.HttpClient.Version.HTTP_1_1;
 

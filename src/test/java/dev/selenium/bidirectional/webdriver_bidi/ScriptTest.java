@@ -1,41 +1,25 @@
 package dev.selenium.bidirectional.webdriver_bidi;
 
 import dev.selenium.BaseTest;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.TimeoutException;
-
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WindowType;
-import org.openqa.selenium.bidi.module.LogInspector;
-import org.openqa.selenium.bidi.module.Script;
 import org.openqa.selenium.bidi.browsingcontext.BrowsingContext;
 import org.openqa.selenium.bidi.browsingcontext.ReadinessState;
 import org.openqa.selenium.bidi.log.ConsoleLogEntry;
-import org.openqa.selenium.bidi.script.ChannelValue;
-import org.openqa.selenium.bidi.script.EvaluateResult;
-import org.openqa.selenium.bidi.script.EvaluateResultExceptionValue;
-import org.openqa.selenium.bidi.script.EvaluateResultSuccess;
-import org.openqa.selenium.bidi.script.LocalValue;
-import org.openqa.selenium.bidi.script.ObjectLocalValue;
-import org.openqa.selenium.bidi.script.PrimitiveProtocolValue;
-import org.openqa.selenium.bidi.script.RealmInfo;
-import org.openqa.selenium.bidi.script.RealmType;
-import org.openqa.selenium.bidi.script.RemoteReference;
-import org.openqa.selenium.bidi.script.ResultOwnership;
+import org.openqa.selenium.bidi.module.LogInspector;
+import org.openqa.selenium.bidi.module.Script;
+import org.openqa.selenium.bidi.script.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+
+import java.util.*;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 
 class ScriptTest extends BaseTest {
 
@@ -131,7 +115,7 @@ class ScriptTest extends BaseTest {
                         Optional.empty(),
                         Optional.empty());
         EvaluateResultSuccess successResult = (EvaluateResultSuccess) result;
-        Assertions.assertEquals("SOME_DELAYED_RESULT", (String) successResult.getResult().getValue().get());
+        Assertions.assertEquals("SOME_DELAYED_RESULT", successResult.getResult().getValue().get());
         }
     }
 
@@ -426,7 +410,7 @@ class ScriptTest extends BaseTest {
     }
 
     @Test
-    void canAddPreloadScript() throws ExecutionException, InterruptedException, TimeoutException {
+    void canAddPreloadScript() throws Exception {
         try (Script script = new Script(driver)) {
             String id =
                     script.addPreloadScript("() => {{ console.log('{preload_script_console_text}') }}");
@@ -472,7 +456,7 @@ class ScriptTest extends BaseTest {
     }
 
     @Test
-    void canRemovePreloadScript() throws ExecutionException, InterruptedException, TimeoutException {
+    void canRemovePreloadScript() throws Exception {
         try (Script script = new Script(driver)) {
             String id =
                     script.addPreloadScript("() => {{ console.log('{preload_script_console_text}') }}");

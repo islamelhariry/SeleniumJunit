@@ -1,5 +1,6 @@
 package dev.selenium.bidirectional.webdriver_bidi.high_level;
 
+import dev.selenium.BaseTest;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -10,13 +11,9 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
-import dev.selenium.BaseTest;
-
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CopyOnWriteArrayList;
-import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
-import java.util.concurrent.TimeoutException;
 
 class LogTest extends BaseTest {
 
@@ -29,7 +26,7 @@ class LogTest extends BaseTest {
 
   @Test
   void canAddConsoleMessageHandler()
-      throws ExecutionException, InterruptedException, TimeoutException {
+          throws Exception {
     CompletableFuture<ConsoleLogEntry> future = new CompletableFuture<>();
 
     long id = ((RemoteWebDriver) driver).script().addConsoleMessageHandler(future::complete);
@@ -59,7 +56,7 @@ class LogTest extends BaseTest {
   }
 
   @Test
-  void canAddJsErrorHandler() throws ExecutionException, InterruptedException, TimeoutException {
+  void canAddJsErrorHandler() throws Exception {
     CompletableFuture<JavascriptLogEntry> future = new CompletableFuture<>();
 
     long id = ((RemoteWebDriver) driver).script().addJavaScriptErrorHandler(future::complete);
