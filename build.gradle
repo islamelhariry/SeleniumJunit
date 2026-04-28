@@ -17,6 +17,7 @@ dependencies {
     testImplementation "org.seleniumhq.selenium:selenium-grid:${seleniumVersion}"
     testImplementation platform("org.junit:junit-bom:6.0.2")
     testImplementation 'org.junit.jupiter:junit-jupiter-engine'
+    testImplementation 'org.junit.platform:junit-platform-suite'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
     testImplementation 'com.titusfortner:selenium-logger:2.4.0'
 }
@@ -26,4 +27,13 @@ test {
     testLogging {
         events "passed", "skipped", "failed"
     }
+}
+
+// Smoke suite task
+tasks.register('smokeTest', Test) {
+    useJUnitPlatform {
+        includeTags 'smoke'
+    }
+    //systemProperty 'baseUrl', project.findProperty('baseUrl') ?: 'https://staging.example.com'
+   // systemProperty 'env', project.findProperty('env') ?: 'staging'
 }
