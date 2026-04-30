@@ -17,11 +17,11 @@ public class RadioButtonTests extends BaseTest {
     @BeforeAll
     public void initPageObject() {
         // Created ONCE for all tests in this class
-        pageObject = PageFactory.initElements(driver, RadioButtonPOM.class);
     }
 
     @BeforeEach
     public void navigateToPage() {
+        pageObject = PageFactory.initElements(driver, RadioButtonPOM.class);
         // Navigation resets per test — this DOES change between tests
         driver.get(RADIO_BUTTON_URL);
     }

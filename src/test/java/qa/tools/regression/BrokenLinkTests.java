@@ -20,14 +20,9 @@ import static qa.tools.pom.BrokenLinksPOM.LINKS_URL;
 public class BrokenLinkTests extends BaseTest {
     private BrokenLinksPOM pageObject;
 
-    @BeforeAll
-    public void initPageObject() {
-        // Created ONCE for all tests in this class
-        pageObject = PageFactory.initElements(driver, BrokenLinksPOM.class);
-    }
-
     @BeforeEach
     public void navigateToPage() {
+        pageObject = PageFactory.initElements(driver, BrokenLinksPOM.class);
         // Navigation resets per test — this DOES change between tests
         driver.get(BROKEN_LINKS_URL);
     }
@@ -97,7 +92,7 @@ public class BrokenLinkTests extends BaseTest {
                 System.out.println("HTTP STATUS - " + httpURLConnect.getResponseMessage());
             }
         }
-        catch (Exception _) {
+        catch (Exception e) {
         }
     }
 

@@ -11,14 +11,9 @@ import static qa.tools.pom.LogInPOM.LOG_IN_URL;
 public class LocatorsTests extends BaseTest {
     private BrowserWindowsPOM pageObject;
 
-    @BeforeAll
-    public void initPageObject() {
-        // Created ONCE for all tests in this class
-        pageObject = PageFactory.initElements(driver, BrowserWindowsPOM.class);
-    }
-
     @BeforeEach
     public void navigateToPage() {
+        pageObject = PageFactory.initElements(driver, BrowserWindowsPOM.class);
         // Navigation resets per test — this DOES change between tests
         driver.get(BROWSER_WINDOWS_URL);
     }

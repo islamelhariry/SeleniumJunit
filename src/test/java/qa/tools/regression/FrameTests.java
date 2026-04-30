@@ -1,6 +1,7 @@
 package qa.tools.regression;
 
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
@@ -21,7 +22,7 @@ public class FrameTests extends BaseTest {
     private FramesPOM pageObject;
     private NestedFramesPOM nestedFramesPOM;
 
-    @BeforeAll
+    @BeforeEach
     public void initPageObject() {
         // Created ONCE for all tests in this class
         pageObject = PageFactory.initElements(driver, FramesPOM.class);

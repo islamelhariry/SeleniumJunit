@@ -13,14 +13,9 @@ import static qa.tools.pom.WebTablesPOM.WEB_TABLES_URL;
 public class TableTests extends BaseTest {
     private WebTablesPOM pageObject;
 
-    @BeforeAll
-    public void initPageObject() {
-        // Created ONCE for all tests in this class
-        pageObject = PageFactory.initElements(driver, WebTablesPOM.class);
-    }
-
     @BeforeEach
     public void navigateToPage() {
+        pageObject = PageFactory.initElements(driver, WebTablesPOM.class);
         // Navigation resets per test — this DOES change between tests
         driver.get(WEB_TABLES_URL);
     }

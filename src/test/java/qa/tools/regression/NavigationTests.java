@@ -1,9 +1,6 @@
 package qa.tools.regression;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -19,7 +16,7 @@ public class NavigationTests extends BaseTest {
 
     private MainPOM pageObject;
 
-    @BeforeAll
+    @BeforeEach
     public void initPageObject() {
         // Created ONCE for all tests in this class
         pageObject = PageFactory.initElements(driver, MainPOM.class);

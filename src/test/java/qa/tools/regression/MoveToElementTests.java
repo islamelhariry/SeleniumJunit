@@ -1,6 +1,7 @@
 package qa.tools.regression;
 
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebElement;
@@ -18,7 +19,7 @@ public class MoveToElementTests extends BaseTest {
     private MenuPOM pageObject;
     private SliderPOM sliderPageObject;
 
-    @BeforeAll
+    @BeforeEach
     public void initPageObject() {
         // Created ONCE for all tests in this class
         pageObject = PageFactory.initElements(driver, MenuPOM.class);

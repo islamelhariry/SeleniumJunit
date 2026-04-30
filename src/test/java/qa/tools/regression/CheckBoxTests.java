@@ -13,14 +13,10 @@ import static qa.tools.pom.FormPOM.FORM_URL;
 public class CheckBoxTests extends BaseTest {
     private FormPOM pageObject;
 
-    @BeforeAll
-    public void initPageObject() {
-        // Created ONCE for all tests in this class
-        pageObject = PageFactory.initElements(driver, FormPOM.class);
-    }
-
     @BeforeEach
     public void navigateToPage() {
+        pageObject = PageFactory.initElements(driver, FormPOM.class);
+
         // Navigation resets per test — this DOES change between tests
         driver.get(FORM_URL);
     }

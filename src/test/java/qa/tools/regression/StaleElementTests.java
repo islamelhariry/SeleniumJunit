@@ -17,14 +17,9 @@ public class StaleElementTests extends BaseTest {
 
     private GooglePOM pageObject;
 
-    @BeforeAll
-    public void initPageObject() {
-        // Created ONCE for all tests in this class
-        pageObject = PageFactory.initElements(driver, GooglePOM.class);
-    }
-
     @BeforeEach
     public void navigateToPage() {
+        pageObject = PageFactory.initElements(driver, GooglePOM.class);
         // Navigation resets per test — this DOES change between tests
         driver.get(GOOGLE_URL);
     }

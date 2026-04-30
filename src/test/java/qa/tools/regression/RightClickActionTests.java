@@ -13,14 +13,9 @@ public class RightClickActionTests extends BaseTest {
 
     private ButtonsPOM pageObject;
 
-    @BeforeAll
-    public void initPageObject() {
-        // Created ONCE for all tests in this class
-        pageObject = PageFactory.initElements(driver, ButtonsPOM.class);
-    }
-
     @BeforeEach
     public void navigateToPage() {
+        pageObject = PageFactory.initElements(driver, ButtonsPOM.class);
         // Navigation resets per test — this DOES change between tests
         driver.get(BUTTONS_URL);
     }

@@ -16,16 +16,10 @@ public class PageObjectModelTests extends BaseTest {
     private FormPOM pageObject;
     private CashedFormPOM cashedPageObject;
 
-    @BeforeAll
-    public void initPageObject() {
-        // Created ONCE for all tests in this class
-        pageObject = PageFactory.initElements(driver, FormPOM.class);
-        cashedPageObject = PageFactory.initElements(driver, CashedFormPOM.class);
-
-    }
-
     @BeforeEach
     public void navigateToPage() {
+        pageObject = PageFactory.initElements(driver, FormPOM.class);
+        cashedPageObject = PageFactory.initElements(driver, CashedFormPOM.class);
         // Navigation resets per test — this DOES change between tests
         driver.get(FORM_URL);
     }

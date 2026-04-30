@@ -14,14 +14,9 @@ import static qa.tools.pom.TextBoxPOM.TEXT_BOX_URL;
 public class KeyboardTests extends BaseTest {
     private TextBoxPOM pageObject;
 
-    @BeforeAll
-    public void initPageObject() {
-        // Created ONCE for all tests in this class
-        pageObject = PageFactory.initElements(driver, TextBoxPOM.class);
-    }
-
     @BeforeEach
     public void navigateToPage() {
+        pageObject = PageFactory.initElements(driver, TextBoxPOM.class);
         // Navigation resets per test — this DOES change between tests
         driver.get(TEXT_BOX_URL);
     }

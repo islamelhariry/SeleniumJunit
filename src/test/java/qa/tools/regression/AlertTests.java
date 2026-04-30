@@ -18,14 +18,9 @@ import static qa.tools.pom.AlertsPOM.ALERTS_URL;
 public class AlertTests extends BaseTest {
     private AlertsPOM pageObject;
 
-    @BeforeAll
-    public void initPageObject() {
-        // Created ONCE for all tests in this class
-        pageObject = PageFactory.initElements(driver, AlertsPOM.class);
-    }
-
     @BeforeEach
     public void navigateToPage() {
+        pageObject = PageFactory.initElements(driver, AlertsPOM.class);
         // Navigation resets per test — this DOES change between tests
         driver.get(ALERTS_URL);
     }

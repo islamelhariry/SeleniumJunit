@@ -18,14 +18,9 @@ import static qa.tools.pom.DropDownPOM.SELECT_URL;
 public class DropDownTests extends BaseTest {
     private DropDownPOM pageObject;
 
-    @BeforeAll
-    public void initPageObject() {
-        // Created ONCE for all tests in this class
-        pageObject = PageFactory.initElements(driver, DropDownPOM.class);
-    }
-
     @BeforeEach
     public void navigateToPage() {
+        pageObject = PageFactory.initElements(driver, DropDownPOM.class);
         // Navigation resets per test — this DOES change between tests
         driver.get(SELECT_URL);
     }

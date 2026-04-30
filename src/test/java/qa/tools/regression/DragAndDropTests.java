@@ -17,14 +17,9 @@ public class DragAndDropTests extends BaseTest {
 
     private DroppablePOM pageObject;
 
-    @BeforeAll
-    public void initPageObject() {
-        // Created ONCE for all tests in this class
-        pageObject = PageFactory.initElements(driver, DroppablePOM.class);
-    }
-
     @BeforeEach
     public void navigateToPage() {
+        pageObject = PageFactory.initElements(driver, DroppablePOM.class);
         // Navigation resets per test — this DOES change between tests
         driver.get(DROPPABLE_URL);
     }

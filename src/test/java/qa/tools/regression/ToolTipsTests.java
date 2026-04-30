@@ -23,14 +23,9 @@ public class ToolTipsTests extends BaseTest {
 
     private ToolTipsPOM pageObject;
 
-    @BeforeAll
-    public void initPageObject() {
-        // Created ONCE for all tests in this class
-        pageObject = PageFactory.initElements(driver, ToolTipsPOM.class);
-    }
-
     @BeforeEach
     public void navigateToPage() {
+        pageObject = PageFactory.initElements(driver, ToolTipsPOM.class);
         // Navigation resets per test — this DOES change between tests
         driver.get(ALERTS_URL);
     }

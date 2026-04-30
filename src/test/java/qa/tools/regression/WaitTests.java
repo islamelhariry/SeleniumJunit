@@ -21,15 +21,11 @@ public class WaitTests extends BaseTest {
 
     private DynamicPropertiesPOM pageObject;
 
-    @BeforeAll
-    public void initPageObject() {
-        // Created ONCE for all tests in this class
-        pageObject = PageFactory.initElements(driver, DynamicPropertiesPOM.class);
-    }
-
     @BeforeEach
     public void navigateToPage() {
         // Navigation resets per test — this DOES change between tests
+        pageObject = PageFactory.initElements(driver, DynamicPropertiesPOM.class);
+
         driver.get(DYNAMIC_PROPERTIES_URL);
     }
 
@@ -46,7 +42,7 @@ public class WaitTests extends BaseTest {
             .pollingEvery(Duration.ofMillis(250))
             .withTimeout(Duration.ofSeconds(2));
 
-        Function<WebDriver, Boolean> function = _ -> {
+        Function<WebDriver, Boolean> function = driver -> {
             WebElement element;
             element = pageObject.colorChange;
             String text = element.getText();
@@ -66,7 +62,7 @@ public class WaitTests extends BaseTest {
             .withTimeout(Duration.ofSeconds(5))
             .ignoring(NoSuchElementException.class); //make sure that this exception is ignored
 
-        Function<WebDriver, WebElement> function = _ -> {
+        Function<WebDriver, WebElement> function = driver -> {
             System.out.println("Checking for the element!!");
             WebElement element = pageObject.visibleAfter;
             System.out.println("Target element found");
