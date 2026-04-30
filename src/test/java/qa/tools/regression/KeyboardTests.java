@@ -1,4 +1,4 @@
-package qa.tools.examples;
+package qa.tools.regression;
 
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
@@ -11,7 +11,6 @@ import qa.tools.pom.TextBoxPOM;
 
 import static qa.tools.pom.TextBoxPOM.TEXT_BOX_URL;
 
-@Tag("smoke")
 public class KeyboardTests extends BaseTest {
     private TextBoxPOM pageObject;
 

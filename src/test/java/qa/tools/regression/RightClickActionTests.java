@@ -1,4 +1,4 @@
-package qa.tools.examples;
+package qa.tools.regression;
 
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebElement;
@@ -9,7 +9,6 @@ import qa.tools.pom.ButtonsPOM;
 
 import static qa.tools.pom.ButtonsPOM.BUTTONS_URL;
 
-@Tag("smoke")
 public class RightClickActionTests extends BaseTest {
 
     private ButtonsPOM pageObject;

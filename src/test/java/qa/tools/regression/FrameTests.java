@@ -1,7 +1,6 @@
-package qa.tools.examples;
+package qa.tools.regression;
 
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -17,7 +16,6 @@ import java.util.Objects;
 import static qa.tools.pom.FramesPOM.FRAMES_URL;
 import static qa.tools.pom.NestedFramesPOM.NESTED_FRAMES_URL;
 
-@Tag("smoke")
 public class FrameTests extends BaseTest {
     private FramesPOM pageObject;
     private NestedFramesPOM nestedFramesPOM;

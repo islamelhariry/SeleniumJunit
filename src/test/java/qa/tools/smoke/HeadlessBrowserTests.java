@@ -1,4 +1,4 @@
-package qa.tools.examples;
+package qa.tools.smoke;
 
 import org.htmlunit.BrowserVersion;
 import org.junit.jupiter.api.Test;

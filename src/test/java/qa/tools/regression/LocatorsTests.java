@@ -1,4 +1,4 @@
-package qa.tools.examples;
+package qa.tools.regression;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;

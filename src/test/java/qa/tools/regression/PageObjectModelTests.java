@@ -1,8 +1,7 @@
-package qa.tools.examples;
+package qa.tools.regression;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.support.PageFactory;
 import qa.tools.BaseTest;
@@ -11,7 +10,6 @@ import qa.tools.pom.FormPOM;
 
 import static qa.tools.pom.FormPOM.FORM_URL;
 
-@Tag("smoke")
 public class PageObjectModelTests extends BaseTest {
 
     private FormPOM pageObject;

@@ -1,8 +1,7 @@
-package qa.tools.examples;
+package qa.tools.regression;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
@@ -15,7 +14,6 @@ import java.util.List;
 
 import static qa.tools.pom.DropDownPOM.SELECT_URL;
 
-@Tag("smoke")
 public class DropDownTests extends BaseTest {
     private DropDownPOM pageObject;
 

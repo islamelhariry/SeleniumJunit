@@ -1,8 +1,7 @@
-package qa.tools.examples;
+package qa.tools.regression;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -19,7 +18,6 @@ import java.util.Objects;
 import static qa.tools.pom.AlertsPOM.ALERTS_URL;
 import static qa.tools.pom.ToolTipsPOM.TOOL_TIPS_URL;
 
-@Tag("smoke")
 public class ToolTipsTests extends BaseTest {
 
     private ToolTipsPOM pageObject;

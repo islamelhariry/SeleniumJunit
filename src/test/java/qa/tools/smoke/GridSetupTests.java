@@ -1,4 +1,4 @@
-package qa.tools.examples;
+package qa.tools.smoke;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
