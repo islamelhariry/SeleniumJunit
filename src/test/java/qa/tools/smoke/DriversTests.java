@@ -1,6 +1,7 @@
 package qa.tools.smoke;
 
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -10,7 +11,7 @@ import org.openqa.selenium.support.PageFactory;
 import qa.tools.pom.LogInPOM;
 
 import static qa.tools.pom.LogInPOM.*;
-
+@Tag("smoke")
 public class DriversTests {
     private WebDriver driver;
     private LogInPOM pageObject;

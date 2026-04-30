@@ -1,12 +1,13 @@
 package qa.tools.regression;
 
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import qa.tools.BaseTest;
 
 import java.util.List;
-
+@Tag("regression")
 public class FindElementTests extends BaseTest {
     public static final String TextBoxURL = "https://demoqa.com/text-box/";
     public static final String FormURL = "https://demoqa.com/automation-practice-form";

@@ -1,5 +1,6 @@
 package qa.tools.smoke;
 
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -8,7 +9,7 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
-
+@Tag("smoke")
 public class SSLHandlingTests {
 
     public static final String EXPIRED_BADSSL_COM = "https://expired.badssl.com/";

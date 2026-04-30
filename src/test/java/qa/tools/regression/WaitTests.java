@@ -3,6 +3,7 @@ package qa.tools.regression;
 import com.google.common.base.Function;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -15,7 +16,7 @@ import qa.tools.pom.DynamicPropertiesPOM;
 import java.time.Duration;
 
 import static qa.tools.pom.DynamicPropertiesPOM.DYNAMIC_PROPERTIES_URL;
-
+@Tag("regression")
 public class WaitTests extends BaseTest {
 
     private DynamicPropertiesPOM pageObject;

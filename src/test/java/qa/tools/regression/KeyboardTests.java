@@ -10,7 +10,7 @@ import qa.tools.BaseTest;
 import qa.tools.pom.TextBoxPOM;
 
 import static qa.tools.pom.TextBoxPOM.TEXT_BOX_URL;
-
+@Tag("regression")
 public class KeyboardTests extends BaseTest {
     private TextBoxPOM pageObject;
 

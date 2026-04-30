@@ -2,6 +2,7 @@ package qa.tools.smoke;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -14,7 +15,7 @@ import java.time.Duration;
 import java.util.Set;
 
 import static qa.tools.pom.BrowserWindowsPOM.BROWSER_WINDOWS_URL;
-
+@Tag("smoke")
 public class WindowHandleTests {
     private BrowserWindowsPOM pageObject;
     private WebDriver driver;

@@ -17,6 +17,7 @@ dependencies {
     testImplementation "org.seleniumhq.selenium:selenium-grid:${seleniumVersion}"
     testImplementation platform("org.junit:junit-bom:6.0.2")
     testImplementation 'org.junit.jupiter:junit-jupiter-engine'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api'
     testImplementation 'org.junit.platform:junit-platform-suite'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
     testImplementation 'com.titusfortner:selenium-logger:2.4.0'
@@ -29,11 +30,50 @@ test {
     }
 }
 
-// Smoke suite task
 tasks.register('smokeTest', Test) {
+    description = "Runs smoke test suite"
+    group = "verification"
+
+    testClassesDirs = sourceSets.test.output.classesDirs
+    classpath = sourceSets.test.runtimeClasspath
+
     useJUnitPlatform {
         includeTags 'smoke'
     }
-    //systemProperty 'baseUrl', project.findProperty('baseUrl') ?: 'https://staging.example.com'
-   // systemProperty 'env', project.findProperty('env') ?: 'staging'
+
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+}
+
+tasks.register('regressionTest', Test) {
+    description = "Runs smoke test suite"
+    group = "verification"
+
+    testClassesDirs = sourceSets.test.output.classesDirs
+    classpath = sourceSets.test.runtimeClasspath
+
+    useJUnitPlatform {
+        includeTags 'regression'
+    }
+
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+}
+
+tasks.register('fullTest', Test) {
+    description = "Runs full test suite"
+    group = "verification"
+
+    testClassesDirs = sourceSets.test.output.classesDirs
+    classpath = sourceSets.test.runtimeClasspath
+
+    useJUnitPlatform {
+        includeTags 'smoke', 'regression'
+    }
+
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
 }

@@ -1,12 +1,13 @@
 package qa.tools.regression;
 
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebElement;
 import qa.tools.BaseTest;
 import qa.tools.pom.XpathPOM;
 
 import java.util.List;
-
+@Tag("regression")
 public class XpathTests extends BaseTest {
 
     @Test

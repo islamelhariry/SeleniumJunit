@@ -2,6 +2,7 @@ package qa.tools.regression;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.StaleElementReferenceException;
@@ -11,7 +12,7 @@ import qa.tools.pom.GooglePOM;
 
 import static qa.tools.pom.GooglePOM.GOOGLE_COOKIE;
 import static qa.tools.pom.GooglePOM.GOOGLE_URL;
-
+@Tag("regression")
 public class StaleElementTests extends BaseTest {
 
     private GooglePOM pageObject;

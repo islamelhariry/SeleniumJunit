@@ -1,16 +1,13 @@
 package qa.tools.regression;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.openqa.selenium.support.PageFactory;
 import qa.tools.BaseTest;
 import qa.tools.pom.BrowserWindowsPOM;
 
 import static qa.tools.pom.BrowserWindowsPOM.BROWSER_WINDOWS_URL;
 import static qa.tools.pom.LogInPOM.LOG_IN_URL;
-
+@Tag("regression")
 public class LocatorsTests extends BaseTest {
     private BrowserWindowsPOM pageObject;
 

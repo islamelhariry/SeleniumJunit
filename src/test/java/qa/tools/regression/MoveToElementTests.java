@@ -1,6 +1,7 @@
 package qa.tools.regression;
 
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -11,7 +12,7 @@ import qa.tools.pom.SliderPOM;
 
 import static qa.tools.pom.MenuPOM.MENU_URL;
 import static qa.tools.pom.SliderPOM.SLIDER_URL;
-
+@Tag("regression")
 public class MoveToElementTests extends BaseTest {
 
     private MenuPOM pageObject;

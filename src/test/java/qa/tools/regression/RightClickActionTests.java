@@ -8,7 +8,7 @@ import qa.tools.BaseTest;
 import qa.tools.pom.ButtonsPOM;
 
 import static qa.tools.pom.ButtonsPOM.BUTTONS_URL;
-
+@Tag("regression")
 public class RightClickActionTests extends BaseTest {
 
     private ButtonsPOM pageObject;

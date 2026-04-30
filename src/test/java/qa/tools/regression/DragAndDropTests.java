@@ -2,6 +2,7 @@ package qa.tools.regression;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -11,7 +12,7 @@ import qa.tools.pom.DroppablePOM;
 
 import static qa.tools.pom.DroppablePOM.DRAGABLE_URL;
 import static qa.tools.pom.DroppablePOM.DROPPABLE_URL;
-
+@Tag("regression")
 public class DragAndDropTests extends BaseTest {
 
     private DroppablePOM pageObject;
